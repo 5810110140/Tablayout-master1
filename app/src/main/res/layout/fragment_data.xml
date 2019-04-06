@@ -6,12 +6,9 @@
     android:orientation="vertical"
     android:background="#19191B"
     android:id="@+id/fragmentdata"
-    tools:context=".DataFragment">
+    tools:context="com.codingdemos.tablayout.DataFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+
 
 </LinearLayout>

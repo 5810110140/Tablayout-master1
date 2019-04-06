@@ -4,14 +4,23 @@
     <item
         android:id="@+id/action_setting"
         android:icon="@drawable/setting1"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="Setting">
     <menu>
-    <item
-        android:id="@+id/action_notification"
-        android:icon="@drawable/notification"
-        android:title="notification"
-        app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/about_us"
+            android:title="บันทึกผล"
+            app:showAsAction="never"/>
+        <item
+        android:id="@+id/guide"
+        android:title="ความรู้ทั่วไป"
+        app:showAsAction="never" />
+        <item
+            android:id="@+id/guide1"
+            android:title="ความรู้ทั่วไป"
+            app:showAsAction="never"/>
+
+
     </menu>
     </item>
 

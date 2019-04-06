@@ -24,12 +24,6 @@ public class StatusFragment extends Fragment {
         setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_control, container, false);
     }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_setting, menu);
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_setting) {

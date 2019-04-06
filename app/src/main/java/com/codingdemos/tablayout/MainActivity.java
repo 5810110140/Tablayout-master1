@@ -2,6 +2,7 @@ package com.codingdemos.tablayout;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
@@ -9,12 +10,20 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.Menu;
+import android.widget.ScrollView;
+import android.widget.LinearLayout;
+
+
+import com.google.firebase.auth.FirebaseAuth;
+
+import lecho.lib.hellocharts.view.LineChartView;
 
 
 public class MainActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+
 
     Toolbar toolbar;
     TabLayout tabLayout;
@@ -22,11 +31,45 @@ public class MainActivity extends AppCompatActivity {
     PageAdapter pageAdapter;
     TabItem tabstatus;
     TabItem tabcontrol;
+    TabItem tabdata;
+    LineChartView chart;
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return MainActivity.super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.about_us){
+            Intent about = new Intent(MainActivity.this, Insert.class);
+            startActivity(about);
+            return true;
+        }
+        else if  (id == R.id.guide){
+            Intent myguide = new Intent(MainActivity.this, Guide.class);
+            startActivity(myguide);
+            return true;
+        }
+        else if (id == R.id.guide1){
+            Intent myguide1 = new Intent(MainActivity.this, Guide1.class);
+            startActivity(myguide1);
+        }
+        return MainActivity.super.onOptionsItemSelected(item);
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ScrollView sv = new ScrollView(this);
+        LinearLayout ll = new LinearLayout(this);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        sv.addView(ll);
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(getResources().getString(R.string.app_name));
@@ -35,7 +78,10 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tablayout);
         tabstatus = findViewById(R.id.tabstatus);
         tabcontrol = findViewById(R.id.tabcontrol);
+        tabdata = findViewById(R.id.tabdata);
         viewPager = findViewById(R.id.viewPager);
+        chart = findViewById(R.id.chart);
+
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -54,11 +100,18 @@ public class MainActivity extends AppCompatActivity {
                             R.color.colorAccent));
                     tabLayout.setBackgroundColor(ContextCompat.getColor(MainActivity.this,
                             R.color.colorAccent));
-                } else if (tab.getPosition() == 2) {
+                }if (tab.getPosition() == 2) {
+                    toolbar.setBackgroundColor(ContextCompat.getColor(MainActivity.this,
+                            R.color.colorAccent));
+                    tabLayout.setBackgroundColor(ContextCompat.getColor(MainActivity.this,
+                            R.color.colorAccent));
+                } else if (tab.getPosition() == 3) {
                     toolbar.setBackgroundColor(ContextCompat.getColor(MainActivity.this,
                             android.R.color.darker_gray));
                     tabLayout.setBackgroundColor(ContextCompat.getColor(MainActivity.this,
                             android.R.color.darker_gray));
+
+
                 } else {
                     toolbar.setBackgroundColor(ContextCompat.getColor(MainActivity.this,
                             R.color.colorPrimary));
@@ -76,20 +129,10 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-            public boolean onCreateOptionsMenu(Menu menu) {
-                getMenuInflater().inflate(R.menu.menu_setting, menu);
-                return MainActivity.super.onCreateOptionsMenu(menu);
-            }
-            public boolean onOptionsItemSelected(MenuItem item) {
-                int id = item.getItemId();
-                switch (id){
-                    case R.id.action_notification:
-                        Toast.makeText(MainActivity.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                        break;
-                }
-                return MainActivity.super.onOptionsItemSelected(item);
 
-            }
+
+
+
         });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 

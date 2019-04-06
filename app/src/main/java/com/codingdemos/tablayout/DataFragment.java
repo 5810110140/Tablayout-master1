@@ -25,10 +25,6 @@ public class DataFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_data, container, false);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_setting, menu);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

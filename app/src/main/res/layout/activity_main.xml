@@ -29,15 +29,17 @@
       android:id="@+id/tabstatus"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/statusbox" />
+      android:text="statusbox" />
 
     <android.support.design.widget.TabItem
       android:id="@+id/tabcontrol"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/controlbox" />
+      android:text="controlbox" />
+
     <android.support.design.widget.TabItem
         android:layout_width="wrap_content"
+        android:id="@+id/tabdata"
         android:layout_height="wrap_content"
         android:text="Data graph"/>
 
@@ -48,4 +50,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

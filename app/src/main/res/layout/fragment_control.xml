@@ -36,7 +36,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="38dp"
         android:layout_marginLeft="38dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="39dp"
         android:layout_toEndOf="@+id/picpipe"
         android:layout_toRightOf="@+id/picpipe"
         android:text="Waterpipe"
