@@ -45,23 +45,64 @@
             android:entries="@array/mushroom" />
     </RelativeLayout>
 
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
 
-    <Button
-        android:id="@+id/btndate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="เลือกวันที่" />
-    <TextView
-        android:id="@+id/textdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        android:textSize="20sp"
-        android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/btndate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="เลือกวันที่" />
 
+        <TextView
+            android:id="@+id/textdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btndate"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="Date"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <Button
+            android:id="@+id/btntime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="เลือกเวลา"/>
+
+        <TextView
+            android:id="@+id/texttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btntime"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="Time"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TimePicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TimePicker>
+    </RelativeLayout>
 
 </LinearLayout>
