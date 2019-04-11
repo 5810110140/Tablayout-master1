@@ -2,6 +2,7 @@ package com.codingdemos.tablayout;
 
 import android.app.DatePickerDialog;
 
+import android.app.TimePickerDialog;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class Insert extends AppCompatActivity {
 
         Calendar c;
         DatePickerDialog dpd;
+        TimePickerDialog tpd;
 
         @Override
         protected void  onCreate(Bundle saveInstanceState) {
@@ -28,7 +30,9 @@ public class Insert extends AppCompatActivity {
             setContentView(R.layout.activity_insert);
 
             mTdate = (TextView)findViewById(R.id.textdate);
+            mTtime = (TextView)findViewById(R.id.texttime);
             mBtdate = (Button)findViewById(R.id.btndate);
+            mBttime = (Button)findViewById(R.id.btntime);
 
             mBtdate.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -45,6 +49,22 @@ public class Insert extends AppCompatActivity {
                         }
                     },day, month, year);
                     dpd.show();
+                }
+            });
+            mBttime.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    final Calendar c = Calendar.getInstance();
+                    int mHour = c.get(Calendar.HOUR_OF_DAY);
+                    int mMinute = c.get(Calendar.MINUTE);
+
+                    tpd = new TimePickerDialog(Insert.this, new TimePickerDialog.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                            mTtime.setText(hourOfDay + ":" + minute);
+                        }
+                    },mHour, mMinute, false);
+                    tpd.show();
                 }
             });
 
