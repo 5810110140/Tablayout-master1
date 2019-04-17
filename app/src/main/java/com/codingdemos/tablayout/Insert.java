@@ -102,14 +102,14 @@ public class Insert extends AppCompatActivity {
 
                     /*mHour = (int) Integer.parseInt(String.valueOf(mBttime.getText().length()));
                     mMinute = (int) Integer.parseInt(String.valueOf(mBttime.getText().length()));*/
-                    typemushroom = Integer.parseInt(Spinnertype.getTextAlignment())
+                   /* typemushroom = Integer.parseInt(Spinnertype.getTextAlignment());*/
                     member.setDate(date);
                     member.setMonth(month);
                     member.setYear(year);
 
                     member.setHour(mHour);
                     member.setMinute(mMinute);
-                    member.setTypemushroom(typemushroom);
+                    /*member.setTypemushroom(typemushroom);*/
                     reff.push().setValue(member);
                     Toast.makeText(Insert.this," data inserted sucessfully" ,Toast.LENGTH_LONG);
 
